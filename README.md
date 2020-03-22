@@ -37,6 +37,13 @@ http://dev.print4health.org/#/login
     user@print4health.org
     test
 
+### Login für Bestellung als Einrichtung
+
+http://dev.print4health.org/#/login
+
+    user@print4health.org
+    test
+
 ### Services
 
 MailDev/MailCatcher: http://localhost:1080
