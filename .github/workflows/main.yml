@@ -27,9 +27,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: PHPStan
-        uses: zalexki/phpstan-action@master
+        uses: docker://nyholm/roave-bc-check-ga
         with:
-          other-cmds: 'analyse -l max -c phpstan.neon ./src'
           secrets: "GITHUB_TOKEN"
 
   php-cs-fixer:
