@@ -28,6 +28,13 @@ phpstan:                                                                        
 psalm:                                                                          ## run psalm static code analyser
 	psalm $(OPTIONS) --show-info=false
 
+phpunit:                                                                        ## run phpunit tests
+	vendor/bin/phpunit --testdox --colors=always -v
+
+snapshots:                                                                      ## run phpunit tests and update snapshots
+	vendor/bin/phpunit --testdox --colors=always -d --update-snapshots $(OPTIONS)
+
+test: phpunit                                                                   ## run tests
 static: php-cs-fix phpstan psalm                                                ## run static analyser
 
 dev: static                                                                     ## run dev tools
