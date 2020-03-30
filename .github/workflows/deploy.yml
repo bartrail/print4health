@@ -1,0 +1,20 @@
+name: deployment
+
+on:
+    release:
+        types:
+            - created
+
+jobs:
+    psalm:
+        name: deploy prod
+        runs-on: ubuntu-18.04
+        steps:
+            -   name: show deploy script
+                uses: garygrossgarten/github-action-ssh@release
+                with:
+                    command: cd /var/www/print4health.org/ && ls -al ./deploy.sh
+                    host: ${{ secrets.PROD_HOST }}
+                    username: ${{ secrets.PROD_USERNAME }}
+                    passphrase: ${{ secrets.PASSPHRASE }}
+                    privateKey: ${{ secrets.PRIVATE_KEY}}
